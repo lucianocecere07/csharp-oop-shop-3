@@ -13,6 +13,7 @@ namespace CSharpShop3
         private double pH;
         private string sorgente;
         private double maxCapienza = 1.5;
+        private const double costanteGallone = 3.785;
 
         //costruttori
         public Acqua(string nome, string descrizione, double prezzo, int iva, double litri, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
@@ -103,11 +104,18 @@ namespace CSharpShop3
             this.litri = 0;
         }
 
+        //metodo statico converte In Galloni
+        public static double ConvertiInGalloni(double litri)
+        {
+            double galloni = Math.Round(litri * costanteGallone, 3);
+            return galloni;
+        }
+
         //override
         public override void StampaProdotto()
         {
             base.StampaProdotto();
-            Console.WriteLine("litri: " + litri + " l");
+            Console.WriteLine("litri: " + Math.Round(litri, 2) + " l");
             Console.WriteLine("pH: " + pH);
             Console.WriteLine("sorgente: " + sorgente);
         }

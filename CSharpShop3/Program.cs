@@ -67,7 +67,7 @@ catch (ArgumentException e)
 }
 */
 
-/*
+
 //prova delle eccezioni nel costruttore (ACQUA)
 try
 {
@@ -82,7 +82,7 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
-*/
+
 
 //prova delle eccezioni nei metodi (ACQUA)
 try
@@ -93,8 +93,8 @@ try
     //acquaProvaSet.SetIva(-7);
     acquaProvaSet.StampaProdotto();
     
-    //acquaProvaSet.Bevi(0.3);
-    acquaProvaSet.Riempi(1.6);
+    acquaProvaSet.Bevi(0.3);
+    acquaProvaSet.Riempi(0.6);
     acquaProvaSet.StampaProdotto();
 }
 catch (ArgumentOutOfRangeException e)
@@ -105,6 +105,16 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
+
+
+
+//metodo statico converte In Galloni
+Acqua acquaGalloni = new Acqua("acqua galloni", "prova galloni", 1, 22, 1.3, 7, "sorgente galloni");
+acquaGalloni.StampaProdotto();
+Console.WriteLine("galloni (dell'acqua) sono: " + Acqua.ConvertiInGalloni(acquaGalloni.GetLitri()) + " gal");
+
+
+
 
 
 
