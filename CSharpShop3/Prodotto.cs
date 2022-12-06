@@ -49,6 +49,7 @@ namespace CSharpShop3
                 throw new ArgumentOutOfRangeException("iva", "l'iva non può essere negativa");
             }
             this.iva = iva;
+            numeroProdottiPresenti++;
         }
 
         //getter
@@ -79,7 +80,6 @@ namespace CSharpShop3
 
         public static int GetNumeroProdottiPresenti()
         {
-            numeroProdottiPresenti++;
             return numeroProdottiPresenti;
         }
 

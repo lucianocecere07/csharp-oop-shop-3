@@ -32,7 +32,7 @@ frutta, l’elettrodomestico e così via.
 using CSharpShop3;
 using System;
 
-/*
+
 //prova delle eccezioni nel costruttore (PRODOTTO)
 try
 {
@@ -66,9 +66,10 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
-*/
 
-/*
+//spazio su console
+Console.WriteLine();
+
 //prova delle eccezioni nel costruttore (ACQUA)
 try
 {
@@ -94,8 +95,8 @@ try
     //acquaProvaSet.SetIva(-7);
     acquaProvaSet.StampaProdotto();
     
-    acquaProvaSet.Bevi(0.3);
-    acquaProvaSet.Riempi(0.6);
+    acquaProvaSet.Bevi(1.0);
+    //acquaProvaSet.Riempi(0.6);
     acquaProvaSet.StampaProdotto();
 }
 catch (ArgumentOutOfRangeException e)
@@ -106,26 +107,50 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
-*/
 
-/*
+
+
 //metodo statico converte In Galloni
 Acqua acquaGalloni = new Acqua("acqua galloni", "prova galloni", 1, 22, 1.3, 7, "sorgente galloni");
 acquaGalloni.StampaProdotto();
 Console.WriteLine("galloni (dell'acqua) sono: " + Acqua.ConvertiInGalloni(acquaGalloni.GetLitri()) + " gal");
-*/
 
+//spazio su console
+Console.WriteLine();
 
 //numero di prodotti presenti
+//creazione di prodotti
+Prodotto prodottoProva = new Prodotto("nome del prodotto", "descrizione del prodotto", 3, 22);
+Acqua AcquaProva = new Acqua("nome dell'acqua", "descrizione dell'acqua", 1.05, 22, 1.5, 6.8, "nome sorgente");
+Prodotto prodottoNegozio = new Prodotto("shampoo", "per capelli normali", 1.60, 22);
+Acqua acquaNaturale = new Acqua("acqua naturale", "acqua minerale liscia", 0.85, 10, 1.5, 7.0, "fonte");
+Frutta sacchettoDiFrutta = new Frutta("sacchetto di frutta", "ananas a pezzi", 3.45, 10, 5);
+Elettrodomestico lavastoviglie = new Elettrodomestico("lavastoviglie", "lavastoviglie a incastro", 280, 22, "lava", "acciaio", "D");
+CiboInScatola fagioli = new CiboInScatola("barattolo di fagioli", "fagioli lessi", 1.19, 4, 300, "fagioli borlotti", "barattolo di vetro");
+
+//stampa in console numero di prodotti presenti 
+Console.WriteLine("totale (prodotti presenti): " + Prodotto.GetNumeroProdottiPresenti()); 
+
+
+
+
+
+
+
+
+
+//-----------------------prove-------------------------------
+/*
+// numero di prodotti presenti
 
 //creazione variabile per contare il numero di prodotti presenti
 int numeroProdottiPresenti = 0;
 
 //creazione di prodotti
-Prodotto prodottoDiProva = new Prodotto("nome del prodotto", "descrizione del prodotto", 3, 22);
+Prodotto prodottoProva = new Prodotto("nome del prodotto", "descrizione del prodotto", 3, 22);
 numeroProdottiPresenti++;
 
-Acqua AcquaDiProva = new Acqua("nome dell'acqua", "descrizione dell'acqua", 1.05, 22, 1.5, 6.8, "nome sorgente");
+Acqua AcquaProva = new Acqua("nome dell'acqua", "descrizione dell'acqua", 1.05, 22, 1.5, 6.8, "nome sorgente");
 numeroProdottiPresenti++;
 
 Prodotto prodottoNegozio = new Prodotto("shampoo", "per capelli normali", 1.60, 22);
@@ -145,21 +170,8 @@ numeroProdottiPresenti++;
 
 //stampa in console numero di prodotti presenti
 Console.WriteLine("totale (prodotti presenti): " + numeroProdottiPresenti);
-
-
-//stampa in console numero di prodotti presenti con Getter
-Console.WriteLine("totale (prodotti presenti): " + Prodotto.GetNumeroProdottiPresenti());
-
-
-
-
-
-
-
-
-
-
-
+*/
+//-------------------------------------------------------------------------//
 
 
 
