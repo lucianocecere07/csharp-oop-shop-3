@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,9 @@ namespace CSharpShop3
         private string descrizione;
         private double prezzo;
         private int iva;
+        
+        //contare il numero di prodotti presenti
+        private static int numeroProdottiPresenti = 0;
 
         //costruttori
         public Prodotto(int codice, string nome, string descrizione, double prezzo, int iva)
@@ -72,6 +76,13 @@ namespace CSharpShop3
         {
             return this.iva;
         }
+
+        public static int GetNumeroProdottiPresenti()
+        {
+            numeroProdottiPresenti++;
+            return numeroProdottiPresenti;
+        }
+
         //setter
         public void SetNome(string nome)
         {

@@ -13,6 +13,8 @@ namespace CSharpShop3
         private double pH;
         private string sorgente;
         private double maxCapienza = 1.5;
+        
+        //proprietà costante
         private const double costanteGallone = 3.785;
 
         //costruttori
