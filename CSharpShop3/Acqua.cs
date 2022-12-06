@@ -12,6 +12,7 @@ namespace CSharpShop3
         private double litri;
         private double pH;
         private string sorgente;
+        private double maxCapienza;
 
         //costruttori
         public Acqua(string nome, string descrizione, double prezzo, int iva, double litri, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
@@ -19,6 +20,7 @@ namespace CSharpShop3
             this.litri = litri;
             this.pH = pH;
             this.sorgente = sorgente;
+            this.maxCapienza = 1.5;
         }
 
         //getter
@@ -40,7 +42,7 @@ namespace CSharpShop3
         //setter
         public void SetLitri(double litri)
         {
-            if (litri < 1.5)
+            if (litri <= maxCapienza)
             {
                 this.litri = litri;
             }
@@ -51,27 +53,35 @@ namespace CSharpShop3
         }
 
         //metodi
-        public void Bevi(double litriDaBere)
+
+        public double Bevi(double litriDaBere)
         {
-            if (litriDaBere < litri)
+            if (litriDaBere <= this.litri)
             {
-                this.litri = litri - litriDaBere;
+                this.litri = this.litri - litriDaBere;
+                if (this.litri == 0)
+                {
+                    Console.WriteLine("Hai finito l'acqua.");
+                }
             }
             else
             {
                 Console.WriteLine("quanto bevi non può essere superiore ai litri della bottiglia");
             }
+
+            return this.litri;
         }
 
         public void Riempi(double litro)
         {
-            if (litro < litri)
+            if (litro <= this.maxCapienza - this.litri)
             {
                 this.litri += litro;
             }
             else
             {
-                Console.WriteLine("l'acqua non viene inserita, può strabordare");
+                Console.WriteLine("l'acqua non viene più inserita, può strabordare");
+                this.litri = this.maxCapienza;
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,21 @@ namespace CSharpShop3
         public Prodotto(string nome, string descrizione, double prezzo, int iva)
         {
             this.codice = CalcoloCodice();
+            if(nome == "" || nome == " ")
+            {
+                throw new ArgumentException("nome", "il nome non può essere vuoto");
+            }
             this.nome = nome;
             this.descrizione = descrizione;
+            if(prezzo <= 0)
+            {
+                throw new ArgumentOutOfRangeException("prezzo", "il prezzo non può avere valore inferiore a 0");
+            }
             this.prezzo = prezzo;
+            if (iva < 0)
+            {
+                throw new ArgumentOutOfRangeException("iva", "l'iva non può essere negativa");
+            }
             this.iva = iva;
         }
 
@@ -62,6 +75,10 @@ namespace CSharpShop3
         //setter
         public void SetNome(string nome)
         {
+            if (nome == "" || nome == " ")
+            {
+                throw new ArgumentException("nome", "il nome non può essere vuoto");
+            }
             this.nome = nome;
         }
 
@@ -78,20 +95,17 @@ namespace CSharpShop3
             }
             else
             {
-                Console.WriteLine("il prezzo deve essere maggiore di 0");
+                throw new ArgumentOutOfRangeException("prezzo", "il prezzo non può avere valore inferiore a 0");
             }
         }
 
         public void SetIva(int iva)
         {
-            if (iva >= 0)
+            if (iva < 0)
             {
-                this.iva = iva;
+                throw new ArgumentOutOfRangeException("iva", "l'iva non può essere negativa");
             }
-            else
-            {
-                Console.WriteLine("l'iva non può essere negativa");
-            }
+            this.iva = iva;
         }
 
         //metodi

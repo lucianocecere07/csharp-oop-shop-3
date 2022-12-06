@@ -30,7 +30,72 @@ frutta, l’elettrodomestico e così via.
 */
 
 using CSharpShop3;
+/*
+//prova delle eccezioni nel costruttore
+try
+{
+    Prodotto prodottoDiProva = new Prodotto("", "descrizione del prodotto", 3, 22);
+    prodottoDiProva.StampaProdotto();
+}
+catch (ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+}
+*/
 
+//prova delle eccezioni nei metodi Setter
+try
+{
+    Prodotto prodottoProvaSet = new Prodotto("nome del prodotto", "descrizione del prodotto", 3, 22);
+    //prodottoProvaSet.SetNome(" ");
+    //prodottoProvaSet.SetPrezzo(-27);
+    prodottoProvaSet.SetIva(-7);
+    prodottoProvaSet.StampaProdotto();
+}
+catch (ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------CSharpShop2-------------------------------------//
+/*
 //creazione nuovo prodotto
 Prodotto prodottoNegozio = new Prodotto("shampoo", "per capelli normali", 1.60, 22);
 
@@ -42,7 +107,6 @@ prodottoNegozio.StampaProdotto();
 Acqua acquaNaturale = new Acqua("acqua naturale", "acqua minerale liscia", 0.85, 10, 1.5, 7.0, "fonte");
 acquaNaturale.StampaProdotto();
 
-/*
 //metodo bevi
 acquaNaturale.Bevi(0.5);
 Console.WriteLine(acquaNaturale.GetLitri());
@@ -56,16 +120,15 @@ acquaNaturale.Svuota();
 Console.WriteLine(acquaNaturale.GetLitri());
 */
 
-
+/*
 //creazione da classe frutta
 Frutta sacchettoDiFrutta = new Frutta("sacchetto di frutta", "ananas a pezzi", 3.45, 10, 5);
 sacchettoDiFrutta.StampaProdotto();
 
-/*
 //metodo togli un pezzo
 sacchettoDiFrutta.TogliPezzo(3);
 Console.WriteLine(sacchettoDiFrutta.GetPezzi());
-*/
+
 
 //creazione da classe elettrodomestico
 Elettrodomestico lavastoviglie = new Elettrodomestico("lavastoviglie", "lavastoviglie a incastro", 280, 22, "lava", "acciaio", "D");
@@ -75,7 +138,7 @@ lavastoviglie.StampaProdotto();
 CiboInScatola fagioli = new CiboInScatola("barattolo di fagioli", "fagioli lessi", 1.19, 4, 300, "fagioli borlotti", "barattolo di vetro");
 fagioli.StampaProdotto();
 
-/*
+
 //metodo bevi -> maggiore della quantità nella scatola
 fagioli.Mangia(400);
 Console.WriteLine(fagioli.GetGrammi());
@@ -87,3 +150,4 @@ Console.WriteLine(fagioli.GetGrammi());
 //prova metodo classe prodotto su sottoclasse cibo in scatola
 fagioli.StampaPrezzo();
 */
+//------------------------------------------------------------------------------------------------//
