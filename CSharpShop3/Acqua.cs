@@ -12,12 +12,20 @@ namespace CSharpShop3
         private double litri;
         private double pH;
         private string sorgente;
-        private double maxCapienza;
+        private double maxCapienza = 1.5;
 
         //costruttori
         public Acqua(string nome, string descrizione, double prezzo, int iva, double litri, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
         {
+            if(litri > maxCapienza || litri < 0)
+            {
+                throw new ArgumentOutOfRangeException("litri", "i litri contenuti nella bottiglia sono errati");
+            }
             this.litri = litri;
+            if(pH < 6.5 || pH > 9.5)
+            {
+                throw new ArgumentOutOfRangeException("pH", "per l'acqua potabile valori ammissibili di pH tra 6.5 e 9.5 pH");
+            }
             this.pH = pH;
             this.sorgente = sorgente;
             this.maxCapienza = 1.5;
@@ -42,14 +50,20 @@ namespace CSharpShop3
         //setter
         public void SetLitri(double litri)
         {
-            if (litri <= maxCapienza)
+            if (litri > maxCapienza || litri < 0)
             {
-                this.litri = litri;
+                throw new ArgumentOutOfRangeException("litri", "i litri contenuti nella bottiglia sono errati");
             }
-            else
+            this.litri = litri;
+        }
+
+        public void SetPH(double pH)
+        {
+            if (pH < 6.5 || pH > 9.5)
             {
-                Console.WriteLine("la bottiglia può essere massimo di 1,5 litri");
+                throw new ArgumentOutOfRangeException("pH", "per l'acqua potabile valori ammissibili di pH tra 6.5 e 9.5 pH");
             }
+            this.pH = pH;
         }
 
         //metodi
@@ -61,14 +75,13 @@ namespace CSharpShop3
                 this.litri = this.litri - litriDaBere;
                 if (this.litri == 0)
                 {
-                    Console.WriteLine("Hai finito l'acqua.");
+                    throw new ArgumentException("la bottiglia è vuota");
                 }
             }
             else
             {
-                Console.WriteLine("quanto bevi non può essere superiore ai litri della bottiglia");
+                throw new ArgumentOutOfRangeException("quanto bevi non può essere superiore ai litri nella bottiglia");
             }
-
             return this.litri;
         }
 
@@ -80,8 +93,8 @@ namespace CSharpShop3
             }
             else
             {
-                Console.WriteLine("l'acqua non viene più inserita, può strabordare");
                 this.litri = this.maxCapienza;
+                throw new ArgumentOutOfRangeException("l'acqua non viene inserita, può strabordare");
             }
         }
 

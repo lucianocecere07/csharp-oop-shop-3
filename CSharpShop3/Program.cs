@@ -30,8 +30,9 @@ frutta, l’elettrodomestico e così via.
 */
 
 using CSharpShop3;
+
 /*
-//prova delle eccezioni nel costruttore
+//prova delle eccezioni nel costruttore (PRODOTTO)
 try
 {
     Prodotto prodottoDiProva = new Prodotto("", "descrizione del prodotto", 3, 22);
@@ -45,9 +46,9 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
-*/
 
-//prova delle eccezioni nei metodi Setter
+
+//prova delle eccezioni nei metodi Setter (PRODOTTO)
 try
 {
     Prodotto prodottoProvaSet = new Prodotto("nome del prodotto", "descrizione del prodotto", 3, 22);
@@ -64,6 +65,47 @@ catch (ArgumentException e)
 {
     Console.WriteLine(e.Message);
 }
+*/
+
+/*
+//prova delle eccezioni nel costruttore (ACQUA)
+try
+{
+    Acqua AcquaDiProva = new Acqua("nome dell'acqua", "descrizione dell'acqua", 1.05, 22, 1.5, 5.8, "nome sorgente");
+    AcquaDiProva.StampaProdotto();
+}
+catch (ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+}
+*/
+
+//prova delle eccezioni nei metodi (ACQUA)
+try
+{
+    Acqua acquaProvaSet = new Acqua("nome dell'acqua", "descrizione dell'acqua", 1.05, 22, 1.0, 6.8, "nome sorgente");
+    //acquaProvaSet.SetNome(" ");
+    //acquaProvaSet.SetPrezzo(-27);
+    //acquaProvaSet.SetIva(-7);
+    acquaProvaSet.StampaProdotto();
+    
+    //acquaProvaSet.Bevi(0.3);
+    acquaProvaSet.Riempi(1.6);
+    acquaProvaSet.StampaProdotto();
+}
+catch (ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+}
+
 
 
 
